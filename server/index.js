@@ -15,7 +15,7 @@ const io = socketio(server)
 io.on('connection', (socket)=>{
     console.log("we have a connection to socket")
 
-    socket.on('disconnect', =>{
+    socket.on('disconnect', ()=>{
         console.log('user left')
     })
 
