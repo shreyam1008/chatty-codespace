@@ -16,11 +16,14 @@ const Chat = ({ location }) => {
     socket = io(ENDPOINT);
     setName(name);
     setRoom(room);
-    socket.emit('join', {name, room})
+    //join - connection value, {name,room}-passing vlaue, ({error}), return value through callback in server
+    socket.emit('join', {name, room}, ({error}) => {
+      alert(error)
+    })
     
 
 
-    return () => {};
+   
   }, [ENDPOINT, location.search]);
   return <div>chat</div>;
 };

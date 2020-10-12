@@ -14,13 +14,19 @@ const io = socketio(server);
 
 io.on("connection", (socket) => {
   console.log("we have a connection to socket");
-  socket.in("join", ({ name, room }) => {
+  socket.on("join", ({ name, room }, callback) => {
     console.log(name, room);
+
+    const error = true
+    if(error){
+      callback({error: 'error found dumbass'})
+    }
+    
   });
 
   socket.on("disconnect", () => {
-    console.log("user left");
-  });
+    console.log("user leftAAA");
+  }); 
 });
 
 app.use(router);
