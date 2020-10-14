@@ -25,12 +25,10 @@ io.on("connection", (socket) => {
       text: `${user.name}, hello there general kenobi to ${user.room}`,
     });
 
-    socket.broadcast
-      .to(user.room)
-      .emit("message", {
-        user: "admin",
-        text: `${user.name} is here. dont be rude`,
-      });
+    socket.broadcast.to(user.room).emit("message", {
+      user: "admin",
+      text: `${user.name} is here. dont be rude`,
+    });
 
     socket.join(user.room);
 
